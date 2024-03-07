@@ -8,11 +8,16 @@ interface ModelProps {
 }
 
 function Model(props: ModelProps) {
-    const { scene, ...rest } = useGLTF("/rick3.glb");
+  const { scene, materials, ...rest } = useGLTF("/rick3.glb");
 
-    
 
-    return <primitive object={scene} scale={0.009} {...rest} />
+  Object.values(materials).forEach((material: any) => {
+      if (material.color) {
+          material.color.convertSRGBToLinear(); 
+      }
+  });
+
+  return <primitive object={scene} scale={0.009} {...rest} />;
 }
  
 const Home: React.FC = () => {
@@ -20,17 +25,17 @@ const Home: React.FC = () => {
       <div className='h-auto w-full gap-y-20 flex flex-col bg-zinc-900'>
         <div className='container flex items-center justify-center flex-col mx-auto gap-y-20  w-full h-screen'>
          <div className='h-5/6 w-full'>
-         <Canvas dpr={[1,2]} shadows camera={{fov:35}} >
-           <color attach={'background'} args={['#18181B']}></color>
-           <ambientLight intensity={Math.PI / 90} />
-           <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} decay={0} intensity={Math.PI} />
-           <pointLight position={[-10, -10, -10]} decay={0} intensity={Math.PI} />
-           <PresentationControls speed={1.5} global zoom={.4} polar={[-0.5, Math.PI / 4]}>
-             <Stage environment={"forest"}>
-                <Model scale={0.01} />
-             </Stage>
-          </PresentationControls>
-          </Canvas>
+         <Canvas dpr={[1, 2]} shadows camera={{ fov: 35 }}>
+            <color attach={'background'} args={['#18181B']}></color>
+            <ambientLight intensity={Math.PI / 20} />
+            <spotLight position={[6, 10, 10]} angle={0.15} penumbra={1} decay={0} intensity={Math.PI} />
+            <pointLight position={[-5, -10, -10]} decay={0} intensity={Math.PI} />
+            <PresentationControls speed={1.5} global zoom={.4} polar={[-0.5, Math.PI / 4]}>
+                <Stage environment={"forest"}>
+                    <Model scale={0} />
+                </Stage>
+            </PresentationControls>
+        </Canvas>
          </div>
         <div className='w-full h-1/6 items-center flex justify-center'>
           <span className='text-white'><HiMiniArrowDown className='animate-bounce text-8xl text-white' /></span>
