@@ -40,31 +40,31 @@ const Home: React.FC = () => {
 
         <div className='container flex flex-col gap-y-5 w-full mx-auto h-[40rem] '>
           <div className='w-full h-60 gap-x-10 grid grid-cols-3'>
-            <button>
+          <a href='/category' >
             <div className='w-full h-full px-2 py-2 hover:px-0 hover:py-0 transition-all duration-300 delay-50 easy-in'>
               <div className='w-full flex items-center flex flex-col justify-center h-full bg-gray-200 rounded-xs'>
               <span className='text-zinc-900 text-4xl font-bold font-bebas '>Kategoriler</span>
               </div>
             </div>
-            </button>
+            </a>
 
-            <button>
+            <a href='/location' >
             <div className='w-full h-full px-2 py-2 hover:px-0 hover:py-0 transition-all duration-300 delay-50 easy-in'>
               <div className='w-full flex items-center flex flex-col justify-center h-full bg-gray-200 rounded-xs'>
               <span className='text-zinc-900 text-4xl font-bold font-bebas '>Lokasyonlar</span>
               </div>
             </div>
-            </button>
+            </a>
 
-            <button>
+            <a href='/episode' >
             <div className='w-full h-full px-2 py-2 hover:px-0 hover:py-0 transition-all duration-300 delay-50 easy-in'>
               <div className='w-full flex items-center flex flex-col justify-center h-full bg-gray-200 rounded-xs'>
               <span className='text-zinc-900 text-4xl font-bold font-bebas '>Bölümler</span>
               </div>
             </div>
-            </button>
+            </a>
           </div>
-          <button>
+          <a href='/favorite' >
             <div className='w-full h-60 gap-x-10 grid grid-cols-1 items-center justify-center'>
             
              <div className='w-full h-full px-2 py-2 hover:px-0 hover:py-0 transition-all duration-300 delay-50 easy-in'>
@@ -73,7 +73,7 @@ const Home: React.FC = () => {
               </div>
              </div>
             </div>
-          </button>
+          </a>
         </div>
     </div>
   );
