@@ -1,13 +1,20 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
 
-function App() {
+import React from 'react';
+import { BrowserRouter as Router, Route,  Routes } from 'react-router-dom';
+
+import Characters from './Component/Characters';
+import Home from './Component/Home';
+
+
+const App: React.FC = () => {
   return (
-    <div className="bg-black h-screen">
-      
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home/>} />
+        <Route path="/characters" element={<Characters/>} />
+      </Routes>
+    </Router>
   );
-}
+};
 
 export default App;
