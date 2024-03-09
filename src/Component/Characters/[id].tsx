@@ -40,7 +40,6 @@ const Category: React.FC<CategoryProps> = ({ ids }) => {
     return <div>Yükleniyor...</div>;
   }
 
-  // Hata durumu
   if (error) {
     return <div>Hata: {error}</div>;
   }

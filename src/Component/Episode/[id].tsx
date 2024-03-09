@@ -38,7 +38,7 @@ const Location: React.FC<EpisodeProps> = ({ ids }) => {
     return <div>Yükleniyor...</div>;
   }
 
-  // Hata durumu
+
   if (error) {
     return <div>Hata: {error}</div>;
   }
@@ -87,11 +87,6 @@ const Location: React.FC<EpisodeProps> = ({ ids }) => {
 
                   
                  </div>
-                 
-                  
-                  
-
-                  
                 </div>
                
             </div>

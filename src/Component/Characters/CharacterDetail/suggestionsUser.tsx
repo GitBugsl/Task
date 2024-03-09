@@ -44,7 +44,7 @@ const Suggestions: React.FC<CategoryProps> = ({ idb , ibc , ibs }) => {
     return <div>Yükleniyor...</div>;
   }
   
-  // Hata durumu
+
   if (error) {
     return <div>Hata: {error}</div>;
   }
@@ -61,13 +61,13 @@ const Suggestions: React.FC<CategoryProps> = ({ idb , ibc , ibs }) => {
     return filteredItems;
   }
 
-  const status = ibs // Filtrelemek istediğiniz status değeri
+  const status = ibs 
   const filteredItems = filterItemsByStatus(data, status);
   let updatedJsonData = [];
   for (let i = 0; i < filteredItems.length; i++) {
     const currentItem = filteredItems[i];
     
-    // Öğenin id özelliğini kontrol edin
+  
     if (currentItem.id != idb) {
         updatedJsonData.push(currentItem);
        
@@ -78,7 +78,7 @@ const Suggestions: React.FC<CategoryProps> = ({ idb , ibc , ibs }) => {
     <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-3 h-auto gap-x-10 gap-y-10">
    
      {updatedJsonData.length === 0 ? (
-      <div>Mevcut karakter bulunamadı.</div>
+      <div className='text-white poppins-bold text-lg'>Mevcut karakter bulunamadı.</div>
       ) : (
         updatedJsonData.map((item: any, index: any) => (
         <Link to={`/character/detail/${item.id}`}>

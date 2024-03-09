@@ -46,7 +46,7 @@ const Suggestions: React.FC<CategoryProps> = ({idb , ibc , iss }) => {
     return <div>Yükleniyor...</div>;
   }
   
-  // Hata durumu
+
   if (error) {
     return <div>Hata: {error}</div>;
   }
