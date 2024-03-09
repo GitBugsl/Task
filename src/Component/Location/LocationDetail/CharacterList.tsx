@@ -1,62 +1,53 @@
 
 import React, { useState, useEffect } from 'react';
-import { Link, useParams } from 'react-router-dom';
-import {fetchData} from '../../services/api.services';
-
-import Pagination from './Pagination';
-import Header from '../Header/index';
-import Favorite from '../Characters/Favorite'
-import ButtonFavorite from '../Characters/ButtonFavorite'
-
+import { Link } from 'react-router-dom';
+import { fetchDataDetailLocationUser } from '../../../services/api.services';
+import Headers from '../../Header';
 
 interface CategoryProps {
-  ids: string;
-  fid: string;
+  ipp: string;
+ 
 }
+const CharacterList: React.FC<CategoryProps> = ({ ipp }) => {
 
-const Category: React.FC<CategoryProps> = ({ fid , ids }) => {
+
 
   const [data, setData] = useState<any[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
-  const { id } = useParams(); 
 
 
   useEffect(() => {
-    const fetchDataFromApi = async (id :any) => {
+    const fetchDataFromApi = async (id: any) => {
       try {
-        const jsonData = await fetchData(id); 
-        setData(jsonData.results); 
-      } catch (error:any) {
-        setError(error.message || 'Bir hata oluştu.'); 
+        const jsonData = await fetchDataDetailLocationUser(ipp);
+        setData(jsonData);
+      } catch (error: any) {
+        setError(error.message || 'Bir hata oluştu.');
       } finally {
-        setIsLoading(false); 
+        setIsLoading(false);
       }
     };
-    fetchDataFromApi(id);
-  }, [id]);
-
+  
+    fetchDataFromApi(ipp);
+  }, [ipp]);
+  
   if (isLoading) {
     return <div>Yükleniyor...</div>;
   }
+  
 
   if (error) {
     return <div>Hata: {error}</div>;
   }
-
-  const currentPage = parseInt(id || '1', 10);
-  const totalPages = 42; 
-  const goToPage = (page: number) => {
-    return <Link to={`/category/${page}`} />;
-  };
-
+    
   return (
     <>
     <div className='h-auto min-h-screen w-full gap-y-0 flex flex-col bg-zinc-900'>
-    <Header/>
-    <Favorite/>
+    <Headers/>
+   
     <div className='container flex items-center justify-center flex-col mx-auto gap-y-20  w-full h-auto'>
-    <div className='w-full flex items-start h-10 justify-center mt-24'><span className='font-bebas text-white text-6xl md:text-7xl lg:text-9xl'>CHARACTERS</span></div>  
+    <div className='w-full flex items-start h-10 justify-center mt-24'><span className='font-bebas text-white text-6xl md:text-7xl lg:text-9xl'>Location character detail</span></div>  
        <div className="grid gap-8 grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-1 xl:grid-cols-2 2xl:grid-cols-2 p-4 md:pl-2 xl:p-20">
        {data.map((item, index) => (
        <div key={index} className="md:gap-x-14 lg:gap-x-14 md:w-[30wh] md:min-w-[30wh] md:max-w-[30wh] lg:w-[40wh] lg:max-w-[40wh] xl:w-[40wh] xl:max-w-[40wh] 2xl:w-[40wh]  bg-zinc-800  rounded-xs flex flex-col sm:flex-col md:flex-row  transform transition duration-500 hover:scale-105">
@@ -66,7 +57,7 @@ const Category: React.FC<CategoryProps> = ({ fid , ids }) => {
                 <img className="rounded-md w-full h-full  object-cover" src={item.image} loading="lazy"/>
              </a>
             </div>
-            <ButtonFavorite fid={item.id}/>
+          
         </div>
 
         <div className="px-4 py-4 md:w-3/5 lg:w-3/5 xl:w-3/5 2xl:w-3/5">
@@ -111,12 +102,9 @@ const Category: React.FC<CategoryProps> = ({ fid , ids }) => {
 
    </div>
    </div>
-    <div className='w-full h-20 items-start justify-center flex container mx-auto gap-x-10'>
-      <Pagination currentPage={currentPage} totalPages={totalPages} goToPage={goToPage} />
-    </div>
     </div>
     </>
   );
 };
 
-export default Category;
+export default CharacterList;

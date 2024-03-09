@@ -1,30 +1,40 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 
-export interface Person {
-    id: number;
-    name: string;
+export interface Favorite {
+    id: string;
 }
 
-interface PersonState {
-    persons: Person[];
+interface FavoriteState {
+    favorites: Favorite[];
 }
 
-const initialState: PersonState = {
-    persons: [],
+const initialState: FavoriteState = {
+    favorites: [],
 };
 
-export const PersonSlice = createSlice({
-    name: "person",
+export const FavoriteSlice = createSlice({
+    name: "favorite",
     initialState,
     reducers: {
-        addPerson: (state, action: PayloadAction<{ name: string }>) => {
-            state.persons.push({
-                id: state.persons.length,
-                name: action.payload.name,
-            });
+        addFavorite: (state, action: PayloadAction<{ id: string }>) => {
+            const { id } = action.payload;
+            // Eğer favoriler içinde bu id zaten varsa, ekleme işlemini gerçekleştirme
+            if (!state.favorites.some(favorite => favorite.id === id)) {
+                state.favorites.push({
+                    id,
+                });
+            }
+        },
+        removeFavorite: (state, action: PayloadAction<{ id: string }>) => {
+            const { id } = action.payload;
+            // Eğer favoriler içinde bu id varsa, çıkarma işlemini gerçekleştir
+            const index = state.favorites.findIndex(favorite => favorite.id === id);
+            if (index !== -1) {
+                state.favorites.splice(index, 1);
+            }
         },
     },
 });
 
-export default PersonSlice.reducer;
-export const { addPerson } = PersonSlice.actions;
+export default FavoriteSlice.reducer;
+export const { addFavorite, removeFavorite } = FavoriteSlice.actions;

@@ -56,7 +56,7 @@ const Location: React.FC<EpisodeProps> = ({ ids }) => {
     <div className='h-auto min-h-screen w-full gap-y-0 flex flex-col bg-zinc-900'>
     <Header/>
     <div className='container flex items-center justify-center flex-col mx-auto gap-y-20  w-full h-auto'>
-    <div className='w-full flex items-start h-10 justify-center mt-24'><span className='font-bebas text-white text-8xl'>EPİSODES</span></div>
+    <div className='w-full flex items-start h-10 justify-center mt-24'><span className='font-bebas text-white text-6xl md:text-7xl lg:text-9xl'>EPİSODES</span></div>
        <div className="grid gap-8 grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 p-4 md:pl-2 xl:p-20">
         
        {data.map((item, index) => (

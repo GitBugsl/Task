@@ -3,6 +3,7 @@ import { Canvas } from '@react-three/fiber';
 import { useGLTF, Stage, PresentationControls } from '@react-three/drei';
 import { HiMiniArrowDown } from "react-icons/hi2";
 import Headers from './Header';
+import { Link } from 'react-router-dom';
 interface ModelProps {
   scale : number,
 
@@ -45,42 +46,41 @@ const Home: React.FC = () => {
         </div>
 
 
-        <div className='container flex flex-col gap-y-5 w-full mx-auto h-[40rem] '>
-          <div className='w-full h-60 gap-x-10 grid grid-cols-3'>
-          <a href='/character/1' >
-            <div className='w-full h-full px-2 py-2 hover:px-0 hover:py-0 transition-all duration-300 delay-50 easy-in'>
+        <div className='container flex flex-col gap-y-1 w-full mx-auto h-[40rem] '>
+          <div className='w-full h-auto gap-x-8 grid grid-cols-1 md:grid-cols-1 lg:grid-cols-3 xl:grid-cols-3 2xl:grid-cols-3'>
+          <Link to='/character/1' >
+            <div className='w-full h-28 md:h-32 xl:h-40 px-2 py-2 hover:px-0 hover:py-0 transition-all duration-300 delay-50 easy-in'>
               <div className='w-full flex items-center flex flex-col justify-center h-full border border-gray-500 hover:border-purple-400 bg-zinc-800 rounded-xs'>
               <span className='text-white text-4xl font-bold font-bebas '>Karakterler</span>
               </div>
             </div>
-            </a>
+            </Link>
 
-            <a href='/location/1' >
-            <div className='w-full h-full px-2 py-2 hover:px-0 hover:py-0 transition-all duration-300 delay-50 easy-in'>
+            <Link to='/location/1' >
+            <div className='w-full h-28 md:h-32 xl:h-40 px-2 py-2 hover:px-0 hover:py-0 transition-all duration-300 delay-50 easy-in'>
               <div className='w-full flex items-center flex flex-col justify-center h-full border border-gray-500 hover:border-purple-400 bg-zinc-800 rounded-xs'>
               <span className='text-white text-4xl font-bold font-bebas '>Lokasyonlar</span>
               </div>
             </div>
-            </a>
+            </Link>
 
-            <a href='/episode/1' >
-            <div className='w-full h-full px-2 py-2 hover:px-0 hover:py-0 transition-all duration-300 delay-50 easy-in'>
+            <Link to='/episode/1' >
+            <div className='w-full h-28 md:h-32 xl:h-40 px-2 py-2 hover:px-0 hover:py-0 transition-all duration-300 delay-50 easy-in'>
               <div className='w-full flex items-center flex flex-col justify-center h-full border border-gray-500 hover:border-purple-400 bg-zinc-800 rounded-xs'>
               <span className='text-white text-4xl font-bold font-bebas '>Bölümler</span>
               </div>
             </div>
-            </a>
+            </Link>
           </div>
-          <a href='/favorite' >
-            <div className='w-full h-60 gap-x-10 grid grid-cols-1 items-center justify-center'>
-            
+          <Link to='/favorite' >
+            <div className='w-full h-40 md:h-44 xl:h-42 2xl:h-60 gap-x-10 grid grid-cols-1 items-center justify-center'>
              <div className='w-full h-full px-2 py-2 hover:px-0 hover:py-0 transition-all duration-300 delay-50 easy-in'>
               <div className='w-full flex items-center flex flex-col justify-center h-full border border-gray-500 hover:border-purple-400 bg-zinc-800 rounded-xs'>
               <span className='text-white text-4xl font-bold font-bebas '>Favoriler</span>
               </div>
              </div>
             </div>
-          </a>
+          </Link>
         </div>
     </div>
   );

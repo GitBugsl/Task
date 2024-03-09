@@ -3,7 +3,6 @@ import React, { useState, useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
 
 import {fetchDataLocation} from '../../services/api.services';
-import { BsBookmarkHeartFill } from "react-icons/bs";
 import Pagination from './Pagination';
 import Header from '../Header/index';
 
@@ -58,11 +57,11 @@ const Location: React.FC<LocationProps> = ({ ids }) => {
     <div className='h-auto min-h-screen w-full gap-y-0 flex flex-col bg-zinc-900'>
     <Header/>
     <div className='container flex items-center justify-center flex-col mx-auto gap-y-20  w-full h-auto'>
-    <div className='w-full flex items-start h-10 justify-center mt-24'><span className='font-bebas text-white text-8xl'>LOCATİONS</span></div>
+    <div className='w-full flex items-start h-10 justify-center mt-24'><span className='font-bebas text-white text-6xl md:text-7xl lg:text-9xl'>LOCATİONS</span></div>
        <div className="grid gap-8 grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 p-4 md:pl-2 xl:p-20">
        {data.map((item, index) => (
-      
-       <div key={index} className="md:gap-x-14 lg:gap-x-14 items-center px-2 py-2 md:w-[30wh] md:min-w-[30wh] md:max-w-[30wh] lg:w-[40wh] lg:max-w-[40wh] xl:w-[40wh] xl:max-w-[40wh] 2xl:w-[40wh]  bg-zinc-800  rounded-xs flex flex-col sm:flex-col md:flex-row  transform transition duration-500 hover:scale-105">
+       <Link to={`/location/detail/${item.id}`}>
+       <div key={index} className="md:gap-x-14 lg:gap-x-14 items-center px-2 py-2 w-full h-60  bg-zinc-800  rounded-xs flex flex-col sm:flex-col md:flex-row  transform transition duration-500 hover:scale-105">
         <div className="px-4 py-4 md:w-full lg:w-full xl:w-full 2xl:w-full">
             <div className='flex flex-col'>
                 <div className='w-full flex flex-col gap-y-5'>
@@ -79,28 +78,13 @@ const Location: React.FC<LocationProps> = ({ ids }) => {
               
                     </div>
                  </div>
-                 
-                  
-                  <div className='flex flex-col gap-y-2'>
-                    <span className='text-md poppins-medium tracking-tight  text-gray-300 dark:text-white '>Last known location:</span>
-                  <p className='text-md poppins-medium tracking-tight hover:text-violet-500 dark:hover:text-violet-500 text-white dark:text-white '>
-                  
-                  </p>
-                  </div>
-
-                  <div className='flex flex-col gap-y-2'>
-                    <span className='text-md poppins-medium tracking-tight  text-gray-300 dark:text-white '>First seen in:</span>
-                  <p className='text-md poppins-medium tracking-tight hover:text-violet-500 dark:hover:text-violet-500 text-white dark:text-white '>
-                   
-                </p>
-                  </div>
                 </div>
                
             </div>
         </div>
 
     </div>
-    
+    </Link>
     ))}
     
         

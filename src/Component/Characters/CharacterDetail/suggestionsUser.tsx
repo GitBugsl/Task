@@ -1,9 +1,8 @@
 
 import React, { useState, useEffect } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { fetchDataDetailLocationUser } from '../../../services/api.services';
-import { BsBookmarkHeartFill } from "react-icons/bs";
-import { current } from '@reduxjs/toolkit';
+
 
 interface CategoryProps {
   ibc: string;
@@ -12,13 +11,6 @@ interface CategoryProps {
 }
 const Suggestions: React.FC<CategoryProps> = ({ idb , ibc , ibs }) => {
 
-  var settings = {
-    dots: false,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 3,
-    slidesToScroll: 1,
-  };
 
   const [data, setData] = useState<any[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(true);
@@ -92,9 +84,7 @@ const Suggestions: React.FC<CategoryProps> = ({ idb , ibc , ibs }) => {
               <div className='flex justify-between'>
               <span className='poppins-medium text-white truncate w-40 h-6 '>{item.name}</span>
               <button className='items-end flex '>
-              <div className="items-center sm:hover:bg-black md:hover:bg-black  lg:hover:bg-black xl:hover:bg-black 2xl:hover:bg-black  sm:bg-zinc-800 md:bg-violet-500 lg:bg-violet-500 hover:bg-violet-500 flex justify-center top-5 bg-opacity-80 right-5 sm:right-3 sm:top-3 md:right-3 md:top-3 lg:top-3 lg:right-3 xl:top-3 xl:right-3 2xl:right-3 2xl:top-3   rounded-lg bg-zinc-800 text-gray-200 md:w-8 md:h-8 lg:h-10 lg:w-10 xl:w-10 xl:h-10 w-10 h-10 text-center">
-              <BsBookmarkHeartFill className='' />
-              </div>
+            
               </button>
               </div>
               <div className='flex gap-x-2 w-full items-center'>
