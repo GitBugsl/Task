@@ -2,6 +2,7 @@ import React from 'react';
 import { Canvas } from '@react-three/fiber';
 import { useGLTF, Stage, PresentationControls } from '@react-three/drei';
 import { HiMiniArrowDown } from "react-icons/hi2";
+import Headers from './Header';
 interface ModelProps {
   scale : number,
 
@@ -23,6 +24,7 @@ function Model(props: ModelProps) {
 const Home: React.FC = () => {
   return (
       <div className='h-auto w-full gap-y-20 flex flex-col bg-zinc-900'>
+        <Headers/>
         <div className='container flex items-center justify-center flex-col mx-auto gap-y-20  w-full h-screen'>
          <div className='h-5/6 w-full'>
          <Canvas dpr={[1, 2]} shadows camera={{ fov: 35 }}>
@@ -45,26 +47,26 @@ const Home: React.FC = () => {
 
         <div className='container flex flex-col gap-y-5 w-full mx-auto h-[40rem] '>
           <div className='w-full h-60 gap-x-10 grid grid-cols-3'>
-          <a href='/category' >
+          <a href='/character/1' >
             <div className='w-full h-full px-2 py-2 hover:px-0 hover:py-0 transition-all duration-300 delay-50 easy-in'>
-              <div className='w-full flex items-center flex flex-col justify-center h-full bg-gray-200 rounded-xs'>
-              <span className='text-zinc-900 text-4xl font-bold font-bebas '>Kategoriler</span>
+              <div className='w-full flex items-center flex flex-col justify-center h-full border border-gray-500 hover:border-purple-400 bg-zinc-800 rounded-xs'>
+              <span className='text-white text-4xl font-bold font-bebas '>Karakterler</span>
               </div>
             </div>
             </a>
 
-            <a href='/location' >
+            <a href='/location/1' >
             <div className='w-full h-full px-2 py-2 hover:px-0 hover:py-0 transition-all duration-300 delay-50 easy-in'>
-              <div className='w-full flex items-center flex flex-col justify-center h-full bg-gray-200 rounded-xs'>
-              <span className='text-zinc-900 text-4xl font-bold font-bebas '>Lokasyonlar</span>
+              <div className='w-full flex items-center flex flex-col justify-center h-full border border-gray-500 hover:border-purple-400 bg-zinc-800 rounded-xs'>
+              <span className='text-white text-4xl font-bold font-bebas '>Lokasyonlar</span>
               </div>
             </div>
             </a>
 
-            <a href='/episode' >
+            <a href='/episode/1' >
             <div className='w-full h-full px-2 py-2 hover:px-0 hover:py-0 transition-all duration-300 delay-50 easy-in'>
-              <div className='w-full flex items-center flex flex-col justify-center h-full bg-gray-200 rounded-xs'>
-              <span className='text-zinc-900 text-4xl font-bold font-bebas '>Bölümler</span>
+              <div className='w-full flex items-center flex flex-col justify-center h-full border border-gray-500 hover:border-purple-400 bg-zinc-800 rounded-xs'>
+              <span className='text-white text-4xl font-bold font-bebas '>Bölümler</span>
               </div>
             </div>
             </a>
@@ -73,8 +75,8 @@ const Home: React.FC = () => {
             <div className='w-full h-60 gap-x-10 grid grid-cols-1 items-center justify-center'>
             
              <div className='w-full h-full px-2 py-2 hover:px-0 hover:py-0 transition-all duration-300 delay-50 easy-in'>
-              <div className='w-full flex items-center flex flex-col justify-center h-full bg-gray-200 rounded-xs'>
-              <span className='text-zinc-900 text-4xl font-bold font-bebas '>Favoriler</span>
+              <div className='w-full flex items-center flex flex-col justify-center h-full border border-gray-500 hover:border-purple-400 bg-zinc-800 rounded-xs'>
+              <span className='text-white text-4xl font-bold font-bebas '>Favoriler</span>
               </div>
              </div>
             </div>

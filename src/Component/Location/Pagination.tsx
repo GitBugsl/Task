@@ -19,7 +19,7 @@ const Pagination: React.FC<{ totalPages: number, currentPage: number, goToPage: 
     <div className="flex container gap-x-1 md:gap-x-5 mt-5 items-center mx-auto justify-center">
       {pageNumbers.map(pageNumber => (
         <div className='w-8 h-8 md:w-10 md:h-10 bg-zinc-800 rounded-full items-center flex justify-center' key={pageNumber}>
-          <Link to={`/character/${pageNumber}`} onClick={() => goToPage(pageNumber)}>
+          <Link to={`/location/${pageNumber}`} onClick={() => goToPage(pageNumber)}>
             <button className={currentPage === pageNumber ? 'active  poppins-bold text-violet-400 w-full h-full' : 'w-full h-full text-white poppins-bold text-xs'}>{pageNumber}</button>
           </Link>
         </div>
